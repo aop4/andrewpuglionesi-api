@@ -1,3 +1,5 @@
+include ActionController::HttpAuthentication::Basic::ControllerMethods
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -37,5 +39,12 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+  
+  config.authenticate_with do
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV.fetch('ADMIN_USERNAME') &&
+      password == ENV.fetch('ADMIN_PASS')
+    end
   end
 end
