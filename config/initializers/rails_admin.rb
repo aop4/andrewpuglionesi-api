@@ -57,15 +57,17 @@ RailsAdmin.config do |config|
   # of this rails app prevented their UIs from rendering. So here we are. The fact that
   # both the username and the password are encrypted makes me feel quite comfortable
   # foregoing salting, as it makes guessing monumentally expensive.
-  config.authenticate_with do
-    authenticate_or_request_with_http_basic do |username, password|
-      Password.new(ENV['ADMIN_USERNAME_HASH']) == username &&
-      Password.new(ENV['ADMIN_PASS_HASH']) == password &&
-      send_email("andrewpuglionesi.com admin interface logged into", 
-      "The admin interface was just logged into. If this wasn't you, "\
-      "immediately change the username and password, consider upping security "\
-      "measures, and check every single thing in the database.")
+  if Rails.env.production?
+    config.authenticate_with do
+      authenticate_or_request_with_http_basic do |username, password|
+        Password.new(ENV['ADMIN_USERNAME_HASH']) == username &&
+        Password.new(ENV['ADMIN_PASS_HASH']) == password &&
+        send_email("andrewpuglionesi.com admin interface logged into", 
+        "The admin interface was just logged into. If this wasn't you, "\
+        "immediately change the username and password, consider upping security "\
+        "measures, and check every single thing in the database.")
+      end
     end
   end
-  
+
 end
