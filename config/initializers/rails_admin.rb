@@ -1,3 +1,4 @@
+include BCrypt
 include ActionController::HttpAuthentication::Basic::ControllerMethods
 include EmailHelper
 
@@ -44,12 +45,22 @@ RailsAdmin.config do |config|
   
   # challenge the admin, and in the event of success, send a warning email in
   # case of a security breech. The email is only sent on success because of
-  # short circuiting (when it's your own solution that's hacky, it can be
-  # oddly appealing).
+  # short circuiting.
+  # To make a new admin username/password, make hashes and store them in the environment.
+  # Use these commands in irb:
+  # require 'bcrypt'
+  # BCrypt::Password.create("my_new_username") => new username hash as string
+  # BCrypt::Password.create("my_new_password") => new password hash as string
+  #
+  # There are authentication gems I could use, but either they had to be
+  # API only, which is a pain for me to actually use, or the API-only nature
+  # of this rails app prevented their UIs from rendering. So here we are. The fact that
+  # both the username and the password are encrypted makes me feel quite comfortable
+  # foregoing salting, as it makes guessing monumentally expensive.
   config.authenticate_with do
     authenticate_or_request_with_http_basic do |username, password|
-      username == ENV.fetch('ADMIN_USERNAME') &&
-      password == ENV.fetch('ADMIN_PASS') &&
+      Password.new(ENV['ADMIN_USERNAME_HASH']) == username &&
+      Password.new(ENV['ADMIN_PASS_HASH']) == password &&
       send_email("andrewpuglionesi.com admin interface logged into", 
       "The admin interface was just logged into. If this wasn't you, "\
       "immediately change the username and password, consider upping security "\

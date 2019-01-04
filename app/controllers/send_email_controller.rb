@@ -2,7 +2,7 @@ class SendEmailController < ApplicationController
   include EmailHelper
 
   # new is just the most logical method name for this action. Really, this
-  # just handles a POST request for sending an email via the contact form.
+  # just handles a POST request for sending me an email via the contact form.
   # parameters: from_email is the user's email address, name is the user's
   # name, and email_body is the user's message
   def new
