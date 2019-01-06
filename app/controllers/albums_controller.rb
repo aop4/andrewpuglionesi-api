@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-      @albums = Album.order(:release_date)
+      @albums = Album.order(release_date: :desc)
       render json: @albums.to_json(:include => :songs)
   end
 
