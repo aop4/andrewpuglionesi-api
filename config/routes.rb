@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :albums, only: [:index, :show] do
-    resources :songs, only: [:index, :show]
+    resources :songs, only: [:index, :show, :update]
   end
   resources :news_items, only: [:index, :show]
   post "send_email", to: "send_email#new"
