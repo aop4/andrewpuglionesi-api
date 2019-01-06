@@ -23,8 +23,8 @@ module AndrewpuglionesiApi
     # allow requests from other domains
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:3000', 'localhost:3001', 'andrewpuglionesi.com'
-        resource '*', headers: :any, methods: [:get, :post, :options]
+        origins 'http://localhost:3000', 'http://localhost:3001', 'http://andrewpuglionesi.com'
+        resource '*', headers: :any, methods: [:get, :post, :options, :patch]
       end
     end
 
