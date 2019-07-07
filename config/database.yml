@@ -19,8 +19,11 @@ test:
   database: api_test
 
 production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  # database: myapp_production
-  # username: myapp
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  database: "main_db"
+  username: "postgres"
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: "/cloudsql/andrewpuglionesi-api:us-east4:super-db-115152"
