@@ -10,7 +10,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
-gem 'rails_admin', '~> 2.0.0.beta'
+gem 'rails_admin'
 
 gem 'devise'
 
@@ -21,6 +21,8 @@ gem 'sendgrid-ruby'
 gem 'bcrypt'
 
 gem 'rack-cors', require: 'rack/cors'
+
+gem 'minitest'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
