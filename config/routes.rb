@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
   resources :news_items, only: [:index, :show]
   post "send_email", to: "send_email#new"
+  get "photos", to: "photos#index"
 end
