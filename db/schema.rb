@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_000943) do
+ActiveRecord::Schema.define(version: 2020_06_28_153331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2020_06_28_000943) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
-    t.string "spanish_desc"
+    t.text "description"
+    t.text "spanish_desc"
     t.string "album_art_path", default: "/images/"
   end
 
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_06_28_000943) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "spanish_text"
+    t.text "spanish_text"
   end
 
   create_table "songs", force: :cascade do |t|
