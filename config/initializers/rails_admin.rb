@@ -1,8 +1,10 @@
 include BCrypt
 include ActionController::HttpAuthentication::Basic::ControllerMethods
+require_relative '../../app/controllers/concerns/email_helper'
 include EmailHelper
 
 RailsAdmin.config do |config|
+  config.asset_source = :sprockets
 
   ### Popular gems integration
 
