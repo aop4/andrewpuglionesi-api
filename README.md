@@ -36,10 +36,11 @@
     6. Restart postgres: `sudo service postgresql restart`
     7. Load the database dump into the main_db database that you created earlier:
         `psql --username=postgres main_db < db/db_dump_2024-OCT-02.sql`
-3. Launch the server:
-    1. `bundle install` to install dependencies.
-    2. `bin/rails server` to start the server.
-    3. Navigate to http://localhost:3000
+
+# Launching the server
+1. `bundle install` to install dependencies.
+2. `bin/rails server` to start the server.
+3. Navigate to http://localhost:3000
 
 # Troubleshooting
 - `bundle install` fails with a message that includes:
