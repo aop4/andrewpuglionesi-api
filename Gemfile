@@ -62,3 +62,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "appengine", "~> 0.7.0"
 gem "sassc-rails"
+gem 'parallel'
