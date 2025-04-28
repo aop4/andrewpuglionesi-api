@@ -39,8 +39,9 @@
 
 # Launching the server
 1. `bundle install` to install dependencies.
-2. `bin/rails server` to start the server.
-3. Navigate to http://localhost:3000
+2. `bin/rails db:migrate` to run database migrations.
+3. `bin/rails server` to start the server.
+4. Navigate to http://localhost:3000
 
 # Troubleshooting
 - `bundle install` fails with a message that includes:

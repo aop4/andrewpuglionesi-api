@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :news_items, only: [:index, :show]
   post "send_email", to: "send_email#new"
   get "photos", to: "photos#index"
+  get "blog_posts", to: "blog_posts#index"
+  get "blog_posts/:path", to: "blog_posts#show"
 end
