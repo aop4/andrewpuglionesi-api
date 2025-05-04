@@ -6,7 +6,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
-    @blog_post = BlogPost.find_by(path: params[:path])
+    @blog_post = BlogPost.find_by!(path: params[:path])
     render json: @blog_post
   end
 
