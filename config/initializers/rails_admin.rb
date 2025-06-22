@@ -45,10 +45,8 @@ RailsAdmin.config do |config|
     # history_show
   end
   
-  # challenge the admin, and in the event of success, send a warning email in
-  # case of a security breech. The email is only sent on success because of
-  # short circuiting.
-  # To make a new admin username/password, make hashes and store them in the environment.
+  # Challenge the admin with basic auth and send warning emails in case of a security breach.
+  # To create a new admin username/password, make hashes and store them in the environment.
   # Use these commands in irb:
   # require 'bcrypt'
   # BCrypt::Password.create("my_new_username") => new username hash as string
@@ -59,15 +57,16 @@ RailsAdmin.config do |config|
   # of this rails app prevented their UIs from rendering. So here we are. The fact that
   # both the username and the password are encrypted makes me feel quite comfortable
   # foregoing salting, as it makes guessing monumentally expensive.
-  if Rails.env.production?
-    config.authenticate_with do
-      authenticate_or_request_with_http_basic do |username, password|
-        Password.new(ENV['ADMIN_USERNAME_HASH']) == username &&
-        Password.new(ENV['ADMIN_PASS_HASH']) == password &&
-        send_email("andrewpuglionesi.com admin interface logged into", 
-        "The admin interface was just logged into. If this wasn't you, "\
-        "immediately change the username and password, consider upping security "\
-        "measures, and check every single thing in the database.")
+  config.authenticate_with do
+    authenticate_or_request_with_http_basic do |username, password|
+      if (Password.new(ENV['ADMIN_USERNAME_HASH']) == username && Password.new(ENV['ADMIN_PASS_HASH']) == password)
+        try_send_email("andrewpuglionesi.com admin interface logged into",
+          "The admin interface was just logged into. If you don't recognize this activity, take action immediately.")
+        true
+      else
+        try_send_email("ALERT: admin interface login failure",
+          "There has been a failed login attempt for the admin interface.")
+        false
       end
     end
   end

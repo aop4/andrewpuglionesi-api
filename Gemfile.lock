@@ -81,6 +81,20 @@ GEM
       google-cloud-env (~> 1.4)
       google-serverless-exec (>= 0.1, < 2.a)
       stackdriver (~> 0.21)
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1119.0)
+    aws-sdk-core (3.226.0)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      jmespath (~> 1, >= 1.6.1)
+      logger
+    aws-sdk-sesv2 (1.77.0)
+      aws-sdk-core (~> 3, >= 3.225.0)
+      aws-sigv4 (~> 1.5)
+    aws-sigv4 (1.12.1)
+      aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
@@ -178,6 +192,7 @@ GEM
     irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    jmespath (1.6.2)
     json (2.11.3)
     jwt (2.10.1)
       base64
@@ -294,7 +309,6 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    ruby_http_client (3.5.5)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -304,8 +318,6 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.3.1)
-    sendgrid-ruby (6.7.0)
-      ruby_http_client (~> 3.4)
     signet (0.19.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -349,6 +361,7 @@ PLATFORMS
 
 DEPENDENCIES
   appengine (~> 0.7.0)
+  aws-sdk-sesv2 (~> 1.70)
   bcrypt
   bootsnap (>= 1.11.1)
   byebug
@@ -364,7 +377,6 @@ DEPENDENCIES
   rails (~> 7.2.1)
   rails_admin (~> 3.2.1)
   sassc-rails
-  sendgrid-ruby
   spring (~> 4.2.1)
   tzinfo-data
 

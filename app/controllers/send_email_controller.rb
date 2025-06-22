@@ -9,8 +9,12 @@ class SendEmailController < ApplicationController
     subject = "Website Contact Form - #{params[:name]} - #{params[:from_email]}"
     email_body = "#{params[:email_body]}"
     # send email with default sender and receiver--see email_helper.rb
-    status = send_email(subject, email_body)
+    aws_ses_response = send_email(subject, email_body)
     # status code will always be 202 on success
-    render json: {}, status: status
+    if aws_ses_response.successful?
+      render status: 202
+    else
+      render status: 500
+    end
   end
 end

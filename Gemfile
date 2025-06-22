@@ -16,8 +16,6 @@ gem 'devise'
 
 gem 'mail'
 
-gem 'sendgrid-ruby'
-
 gem 'bcrypt'
 
 gem 'rack-cors', require: 'rack/cors'
@@ -63,3 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "appengine", "~> 0.7.0"
 gem "sassc-rails"
 gem 'parallel'
+
+gem 'aws-sdk-sesv2', '~> 1.70'
