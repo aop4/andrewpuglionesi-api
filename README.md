@@ -35,7 +35,7 @@
         ```
     6. Restart postgres: `sudo service postgresql restart`
     7. Load the database dump into the main_db database that you created earlier:
-        `psql --username=postgres main_db < db/db_dump_2024-OCT-02.sql`
+        `psql --username=postgres main_db < db/db_dump_2026-JAN-18.sql`
 
 # Launching the server
 1. `bundle install` to install dependencies.

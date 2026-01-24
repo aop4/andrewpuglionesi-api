@@ -23,7 +23,7 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
-  database: "main_db"
-  username: "postgres"
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: "/cloudsql/andrewpuglionesi-api:us-east4:super-db-115152"
+  host: <%= ENV['DATABASE_HOST'] %>
