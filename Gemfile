@@ -1,65 +1,52 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 3.3.5'
+ruby '~> 4.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.2.1'
+gem 'rails', '~> 8.1'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 1.6'
 # Use Puma as the app server
-gem 'puma', '~> 6.4.3'
+gem 'puma', '~> 8.0'
 
-gem 'rails_admin', '~> 3.2.1'
+gem 'rails_admin', '~> 3.3'
 
-gem 'devise'
+gem 'devise', '~> 5.0'
 
-gem 'mail'
+gem 'bcrypt', '~> 3.1'
 
-gem 'bcrypt'
+gem 'rack-cors', '~> 3.0', require: 'rack/cors'
 
-gem 'rack-cors', require: 'rack/cors'
-
-gem 'minitest'
-
-gem 'flickraw'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'flickraw', '~> 0.9'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.11.1', require: false
+gem 'bootsnap', '~> 1.23', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', '~> 13.0', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'listen', '~> 3.9.0'
+  gem 'listen', '~> 3.10'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 4.2.1'
+  gem 'spring', '~> 4.4'
 end
 
+group :test do
+  gem 'minitest', '~> 6.0'
+  gem 'minitest-mock', '~> 5.27'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', '~> 1.2026.1', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "appengine", "~> 0.7.0"
-gem "sassc-rails"
-gem 'parallel'
+gem "appengine", "~> 0.7"
+gem "sassc-rails", '~> 2.1'
+gem 'parallel', '~> 2.0'
 
-gem 'aws-sdk-sesv2', '~> 1.70'
+gem 'aws-sdk-sesv2', '~> 1.97'

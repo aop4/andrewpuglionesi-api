@@ -1,7 +1,7 @@
 # Local environment setup
 1. Install Ruby with rvm.
     1. Follow instructions at https://rvm.io/rvm/install to install rvm.
-    2. Run `rvm install 3.3.5`, then `rvm use 3.3.5`.
+    2. Run `rvm install 4.0.2`, then `rvm use 4.0.2`.
     3. If you see a message stating "RVM is not a function," try adding this to your `.bashrc` file: `source ~/.rvm/scripts/rvm`.
 2. Set up the database.
     1. Install Postgres 16. This version may not be available among your default Linux packages--you can manually add a repository that allows you to install any Postgres version:
@@ -42,6 +42,9 @@
 2. `bin/rails db:migrate` to run database migrations.
 3. `bin/rails server` to start the server.
 4. Navigate to http://localhost:3000
+
+# Run tests
+`rake test`
 
 # Troubleshooting
 - `bundle install` fails with a message that includes:

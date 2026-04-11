@@ -1,4 +1,3 @@
-require 'minitest/unit'
 require 'minitest/autorun'
 require_relative '../app/services/pagination_service'
 
